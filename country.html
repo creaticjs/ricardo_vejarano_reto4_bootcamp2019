@@ -6,44 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Challenge 4</title>
-    <link rel="stylesheet" href="./challenge4.css">
+    <link rel="stylesheet" href="./country.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="#">Challenge 4</a>
+        <a class="navbar-brand" href="#" onclick="returnMain()">Challenge 4</a>
     </nav>
 
-    <div class="container" style="margin-top:50px;">
+    <div class="container">
+
         <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <div class="row">
-                    <div class="col col-lg-12">
-                        <h1>ALL COUNTRIES</h1>
-                    </div>
+            <div class="col">
+                    <img  id="imgCountry" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title justify-content-center" id="countryName">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional
+                            content. This content is a little bit longer.</p>
+                        <p class="card-text"><small id="countryCapital" class="text-muted">Last updated 3 mins
+                                ago</small></p>
                 </div>
-
-            </div>
-
-            <div class="col col-lg-12">
-
-                <div class="col col-lg-12">
-                    <div class="form-group">
-                        <input onkeyup="inputEvent()" type="text" class="form-control" id="countryForSearch"
-                            aria-describedby="emailHelp" placeholder="Country">
-                    </div>
-                </div>
-
-            </div>
-            <div class="row" id="rowC">
             </div>
         </div>
+
     </div>
 
 
-    <script src="./challenge4.js"></script>
+    <script src="./country.js"></script>
     <!--BOOTSTRAP JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -54,6 +46,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

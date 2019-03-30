@@ -1,9 +1,26 @@
 getAllCountries();
+getAllCurrency();
 var AllCountries;
+var allCurrency;
 var countryForSearch = '';
 var countriesSearched = new Array();
 var allContent = "";
 var allContentSearched = "";
+
+
+
+// GET ALL CURRENCIES
+function getAllCurrency() {
+    getData("https://api.exchangeratesapi.io/latest")
+        .then(function (data) {
+            allCurrency = data;
+            console.log('CURRENCY', allCurrency);
+        }).catch(function (err) {
+            console.log(err);
+        });
+}
+
+
 
 // LIST OF COUNTRIES
 function getAllCountries() {
@@ -14,7 +31,6 @@ function getAllCountries() {
         }).catch(function (err) {
             console.log(err);
         });
-
 }
 
 function getOneCountry() {
@@ -74,7 +90,7 @@ function createCardsSearched() {
     allContentSearched = '';
     var col = 3;
 
-    if(countriesSearched.length == 2) {
+    if (countriesSearched.length == 2) {
         col = 6;
     } else {
         col = 3
@@ -82,7 +98,7 @@ function createCardsSearched() {
 
     for (var x = 0; x < countriesSearched.length; x++) {
         allContentSearched += `
-        <div class="col-${col}" onclick="countrySelected('${countriesSearched[x].name},${countriesSearched[x].currencies[0].code}')">
+        <div class="col-${col}" onclick="countrySelected('${countriesSearched[x].alpha3Code}')">
             <div class="card">
                 <img src="${countriesSearched[x].flag}"
                     class="card-img-top" alt="...">
@@ -95,10 +111,10 @@ function createCardsSearched() {
     document.getElementById('rowC').innerHTML = allContentSearched;
 }
 
-function countrySelected(countrySelected) {
-    var currencieSelected = countrySelected.split(',')[0];
-    var dodeCountry = countrySelected.split(',')[1];
-    console.log(currencieSelected);
+function countrySelected(codeCountrySelected) {
+    var code = codeCountrySelected.split(',')[1]
+    localStorage.setItem('codeCountryBootcamp', code)
+    window.location.replace('http://127.0.0.1:5500/country.html');
 }
 
 function inputEvent() {

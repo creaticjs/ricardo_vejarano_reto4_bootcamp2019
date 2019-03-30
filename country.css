@@ -1,0 +1,27 @@
+.card:hover {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+}
+
+.card {
+    margin-top: 10px;
+    border-radius: 1rem !important;
+}
+
+.card-img-top {
+    height: 400px !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+}
+
+p {
+    text-align: center;
+}
+
+img {
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
