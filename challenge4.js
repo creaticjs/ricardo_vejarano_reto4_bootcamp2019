@@ -1,6 +1,9 @@
 getAllCountries();
 var AllCountries;
 var countryForSearch = '';
+var countriesSearched = new Array();
+var allContent = "";
+var allContentSearched = "";
 
 // LIST OF COUNTRIES
 function getAllCountries() {
@@ -51,7 +54,7 @@ function createCards() {
 
 
     for (var x = 0; x < AllCountries.length; x++) {
-        document.getElementById('rowC').innerHTML += `
+        allContent += `
         <div class="col-3" onclick="countrySelected('${AllCountries[x].name},${AllCountries[x].currencies[0].code}')">
             <div class="card">
                 <img src="${AllCountries[x].flag}"
@@ -62,6 +65,26 @@ function createCards() {
             </div>
         </div>`
     }
+    document.getElementById('rowC').innerHTML = allContent;
+}
+
+function createCardsSearched() {
+    var content = document.getElementById('rowC');
+    content.innerHTML = '';
+    allContentSearched = '';
+    for (var x = 0; x < countriesSearched.length; x++) {
+        allContentSearched += `
+        <div class="col-3" onclick="countrySelected('${countriesSearched[x].name},${countriesSearched[x].currencies[0].code}')">
+            <div class="card">
+                <img src="${countriesSearched[x].flag}"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">${countriesSearched[x].name}</p>
+                </div>
+            </div>
+        </div>`
+    }
+    document.getElementById('rowC').innerHTML = allContentSearched;
 }
 
 function countrySelected(countrySelected) {
@@ -71,7 +94,19 @@ function countrySelected(countrySelected) {
 }
 
 function inputEvent() {
+    countriesSearched = new Array();
     countryForSearch = '';
     countryForSearch = document.getElementById('countryForSearch').value;
-    console.log(countryForSearch);
+    countriesSearched = getArraySearched(countryForSearch);
+    createCardsSearched();
+
+    console.log(countriesSearched);
+}
+
+function getArraySearched(args) {
+    // console.log(args, AllCountries);
+    return AllCountries.filter(function (item) {
+        return JSON.stringify(item).toLowerCase().includes(args);
+    })
+
 }
