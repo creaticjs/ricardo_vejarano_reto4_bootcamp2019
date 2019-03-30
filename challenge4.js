@@ -51,7 +51,7 @@ function createCards() {
     console.log(AllCountries);
     var content = document.getElementById('rowC');
     content.innerHTML = '';
-
+    allContent = '';
 
     for (var x = 0; x < AllCountries.length; x++) {
         allContent += `
@@ -72,9 +72,17 @@ function createCardsSearched() {
     var content = document.getElementById('rowC');
     content.innerHTML = '';
     allContentSearched = '';
+    var col = 3;
+
+    if(countriesSearched.length == 2) {
+        col = 6;
+    } else {
+        col = 3
+    }
+
     for (var x = 0; x < countriesSearched.length; x++) {
         allContentSearched += `
-        <div class="col-3" onclick="countrySelected('${countriesSearched[x].name},${countriesSearched[x].currencies[0].code}')">
+        <div class="col-${col}" onclick="countrySelected('${countriesSearched[x].name},${countriesSearched[x].currencies[0].code}')">
             <div class="card">
                 <img src="${countriesSearched[x].flag}"
                     class="card-img-top" alt="...">
