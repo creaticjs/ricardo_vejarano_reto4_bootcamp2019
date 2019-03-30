@@ -1,10 +1,23 @@
 .card:hover {
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
 }
 
 .card {
     margin-top: 10px;
-    width: 18rem;
+    width: 16rem;
+    
+    max-width: 16rem;
+    border-radius: 1rem !important;
+}
+
+.card-img-top {
+    height: 140px !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+}
+
+p {
+    text-align: center;
 }

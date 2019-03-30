@@ -1,5 +1,6 @@
 getAllCountries();
 var AllCountries;
+var countryForSearch = '';
 
 // LIST OF COUNTRIES
 function getAllCountries() {
@@ -44,38 +45,33 @@ function getData(url) {
 
 
 function createCards() {
-
-    var div = document.createElement('div');
-    div.className = 'col-3';
-    var div2 = document.createElement('div');
-    div2.className = 'card';
-    var div3 = document.createElement('div');
-    div3.className = 'card-body';
-    var p = document.createElement('p');
-    var img = document.createElement('img');
-    img.className = 'card-img-top';
-    img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Flag_of_the_Gran_Colombia_%281819-1820%29.svg/1280px-Flag_of_the_Gran_Colombia_%281819-1820%29.svg.png';
+    console.log(AllCountries);
+    var content = document.getElementById('rowC');
+    content.innerHTML = '';
 
 
-    p.className = 'card-text';
-    p.innerHTML = 'Información del país';
-
-
-
-    div.appendChild(div2);
-    div2.appendChild(img);
-    div2.appendChild(div3);
-    div3.appendChild(p);
-
-    document.querySelector(".container").appendChild(div);
-
-
-
-    /*
     for (var x = 0; x < AllCountries.length; x++) {
-        var iDiv = document.createElement('div');
-        iDiv.id = 'block' + x;
-        iDiv.className = 'card view overlay zoom';
-        document.getElementsByTagName('body')[0].appendChild(iDiv);
-    }*/
+        document.getElementById('rowC').innerHTML += `
+        <div class="col-3" onclick="countrySelected('${AllCountries[x].name},${AllCountries[x].currencies[0].code}')">
+            <div class="card">
+                <img src="${AllCountries[x].flag}"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">${AllCountries[x].name}</p>
+                </div>
+            </div>
+        </div>`
+    }
+}
+
+function countrySelected(countrySelected) {
+    var currencieSelected = countrySelected.split(',')[0];
+    var dodeCountry = countrySelected.split(',')[1];
+    console.log(currencieSelected);
+}
+
+function inputEvent() {
+    countryForSearch = '';
+    countryForSearch = document.getElementById('countryForSearch').value;
+    console.log(countryForSearch);
 }
